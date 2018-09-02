@@ -13,7 +13,7 @@ surface = pygame.display.set_mode((surfaceWidth,surfaceHeight))
 pygame.display.set_caption('flappy_bird_clone')
 clock = pygame.time.Clock()
 
-img = pygame.image.load('flappybird.png')
+img = pygame.image.load('png/flappybird.png')
 
 def replay_or_quit():
 	for event in pygame.event.get([pygame.KEYDOWN, pygame.KEYUP, pygame.QUIT]):
