@@ -15,7 +15,6 @@ clock = pygame.time.Clock()
 
 img = pygame.image.load('png/flappybird.png')
 
-
 def make_text_objs(text, font):
     textSurface = font.render(text, True, white)
     return textSurface, textSurface.get_rect()
