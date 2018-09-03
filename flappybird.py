@@ -54,6 +54,17 @@ def init_globals():
     y = 100
     y_move = 0
 
+def restart_game():
+    if y > surfaceHeight - 110 or y < -70:
+        msg_surface('Kaboom!')
+        waiting_for_keypress = True
+        while waiting_for_keypress:
+            for event in pygame.event.get():
+                if event.type == pygame.KEYDOWN:
+                    waiting_for_keypress = False
+                    init_globals()
+                clock.tick()
+
 def main():
     global x, y, y_move
     init_globals()
@@ -79,15 +90,7 @@ def main():
         surface.fill(black)
         bird(x, y, img)
 
-        if y > surfaceHeight - 110 or y < -70:
-            msg_surface('Kaboom!')
-            waiting_for_keypress = True
-            while waiting_for_keypress:
-                for event in pygame.event.get():
-                    if event.type == pygame.KEYDOWN:
-                        waiting_for_keypress = False
-                        init_globals()
-                    clock.tick()
+        restart_game()
 
         pygame.display.update()
         clock.tick(60)
