@@ -15,10 +15,6 @@ clock = pygame.time.Clock()
 
 img = pygame.image.load('png/flappybird.png')
 
-x = 50
-y = 100
-y_move = 0
-
 
 def make_text_objs(text, font):
     textSurface = font.render(text, True, white)
@@ -48,11 +44,13 @@ def game_over():
 def bird(x, y, img):
     surface.blit(img, (x, y))
 
+
 def init_globals():
     global x, y, y_move
     x = 50
     y = 100
     y_move = 0
+
 
 def restart_game():
     if y > surfaceHeight - 110 or y < -70:
@@ -64,6 +62,7 @@ def restart_game():
                     waiting_for_keypress = False
                     init_globals()
                 clock.tick()
+
 
 def main():
     global x, y, y_move
